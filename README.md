@@ -380,18 +380,7 @@ greenhouse-mecanum-robot/
 
 - [System Architecture](docs/system_architecture.md)
 - [STM32 Firmware Architecture](docs/stm32_firmware_architecture.md)
-
-### Planned
-
-- Serial Protocol
-- ROS 2 Software Architecture
-- Nav2 / MPPI Tuning
-- Odometry and TF
-- Environmental Sensor Integration
-- USB Device Stabilization
-- Bringup and Operation
-- Fault Analysis
-- Field Validation
+- [STM32 / ROS 2 Serial Protocol](docs/serial_protocol.md)
 
 ---
 
