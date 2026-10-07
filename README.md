@@ -17,13 +17,12 @@ This project was developed and validated on a real four-wheel mecanum robot for 
 ### Real Robot Platform
 
 <p align="center">
-  <img src="media/images/robot_overview.jpg" width="800">
+  <img src="media/f1ed5129057b6bf8a711b6330355f722.jpg" width="48%">
+  <img src="media/ed0fc33912e08596cc2c8be37d58b40b.jpg" width="48%">
 </p>
 
-### Navigation Test
-
 <p align="center">
-  <img src="media/images/navigation_test.jpg" width="800">
+  <em>Four-wheel mecanum greenhouse mobile robot used for real-world navigation and system integration tests.</em>
 </p>
 
 The robot was validated on a real four-wheel mecanum platform using ROS 2 Jazzy, Nav2, AMCL and the MPPI Omni controller.
