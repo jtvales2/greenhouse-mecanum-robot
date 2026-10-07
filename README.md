@@ -21,11 +21,11 @@ This project was developed and validated on a real four-wheel mecanum robot for 
   <img src="media/robot_front.jpg" width="48%">
 </p>
 
-### Real-Vehicle Demo
+### Project Evolution
 
-[▶ Watch the real-vehicle navigation demo](media/mecanum_navigation_demo.mp4)
+[▶ Watch the project evolution video](media/greenhouse_robot_project_evolution.mp4)
 
-The demo shows the physical four-wheel mecanum platform used during ROS 2 / Nav2 integration and real-vehicle testing.
+This video documents the development of the robot from early chassis bringup to the final integrated system, including low-level motion control, ROS 2 integration, localization, navigation, sensing and real-vehicle testing.
 
 <p align="center">
   <em>Four-wheel mecanum greenhouse mobile robot used for real-world navigation and system integration tests.</em>
