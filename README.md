@@ -1,2 +1,67 @@
-# greenhouse-mecanum-robot
-STM32 + ROS2 Jazzy + Nav2 MPPI Omni greenhouse mecanum mobile robot: firmware, configs, engineering docs and field validation
+# Greenhouse Mecanum Robot
+
+A greenhouse mobile robot based on **STM32F407 + Raspberry Pi 4 + ROS 2 Jazzy + Nav2 MPPI Omni**.
+
+This project was developed and validated on a real four-wheel mecanum robot for greenhouse navigation, manual takeover, environmental sensing and remote monitoring.
+
+> **Repository Scope**
+>
+> This repository contains the open-source STM32 chassis firmware, Nav2 configuration, tuning history, engineering documentation and field-test materials.
+>
+> The original Raspberry Pi ROS 2 application-layer source code was not fully preserved. Its architecture, package responsibilities and validated behavior are documented from the original engineering records.
+
+---
+
+## Demo
+
+> Real-vehicle photos, GIFs and videos will be added here.
+
+---
+
+## Hardware
+
+- STM32F407ZGT6
+- Raspberry Pi 4
+- Four-wheel mecanum chassis
+- RPLIDAR A1
+- WIT IMU
+- Wheel encoders
+- IMX219 camera
+- RS485 environmental sensor
+
+---
+
+## Software Stack
+
+- Ubuntu 24.04
+- ROS 2 Jazzy
+- Nav2
+- AMCL
+- MPPI Controller
+- Omni motion model
+- velocity_smoother
+- collision_monitor
+- twist_mux
+
+---
+
+## System Architecture
+
+```text
+Goal Pose
+   ↓
+Nav2 Planner
+   ↓
+MPPI Omni Controller
+   ↓
+Velocity Smoother
+   ↓
+Collision Monitor
+   ↓
+twist_mux  ←  Gamepad Override
+   ↓
+ROS 2 Serial Bridge
+   ↓
+STM32 Chassis Controller
+   ↓
+Mecanum Wheel Velocity Control
