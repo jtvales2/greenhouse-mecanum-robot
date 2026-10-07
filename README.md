@@ -385,6 +385,7 @@ greenhouse-mecanum-robot/
 - [Odometry and TF Engineering](docs/odometry_and_tf.md)
 - [Real-Vehicle Validation](docs/field_validation.md)
 - [Bringup and Operation Guide](docs/bringup_and_operation.md)
+- [Fault Analysis and Debugging](docs/fault_analysis.md)
 
 ---
 
