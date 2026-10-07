@@ -14,7 +14,19 @@ This project was developed and validated on a real four-wheel mecanum robot for 
 
 ## Demo
 
-> Real-vehicle photos, GIFs and videos will be added here.
+### Real Robot Platform
+
+<p align="center">
+  <img src="media/images/robot_overview.jpg" width="800">
+</p>
+
+### Navigation Test
+
+<p align="center">
+  <img src="media/images/navigation_test.jpg" width="800">
+</p>
+
+The robot was validated on a real four-wheel mecanum platform using ROS 2 Jazzy, Nav2, AMCL and the MPPI Omni controller.
 
 ---
 
