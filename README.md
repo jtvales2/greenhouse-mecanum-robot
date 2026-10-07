@@ -4,6 +4,15 @@ A greenhouse mobile robot based on **STM32F407 + Raspberry Pi 4 + ROS 2 Jazzy + 
 
 This project was developed and validated on a real four-wheel mecanum robot for greenhouse navigation, manual takeover, environmental sensing and remote monitoring.
 
+## Project Highlights
+
+- Built a complete mobile robot system from STM32 chassis control to ROS 2 autonomous navigation.
+- Implemented four-wheel mecanum kinematics, wheel-speed closed-loop control, encoder feedback and IMU yaw processing on STM32F407.
+- Integrated ROS 2 Jazzy, AMCL and Nav2 MPPI Omni on Raspberry Pi 4.
+- Built the real-vehicle control chain from `NavigateToPose` to STM32 motor control, including velocity smoothing, collision monitoring and high-priority gamepad takeover.
+- Diagnosed and solved system-level issues including Raspberry Pi 4 overload, Nav2 lifecycle resets, odometry yaw drift, USB device instability and camera-stream freezing.
+- Completed real-vehicle validation, environmental sensing, remote video monitoring and engineering handover documentation.
+
 > **Repository Scope**
 >
 > This repository contains the open-source STM32 chassis firmware, preserved Nav2 configuration snapshots and tuning history, engineering documentation, and real-vehicle validation materials.
