@@ -37,6 +37,24 @@ STM32 HAL and CMSIS are provided by STMicroelectronics under their respective li
 
 The project also interfaces with the WIT Motion IMU SDK. Vendor SDK source files are not redistributed in this repository. Obtain the required SDK from WIT Motion separately.
 
+### WIT Motion SDK Files Required for Build
+
+The original Keil project references the WIT Motion SDK.
+
+Before building the complete firmware, obtain the corresponding WIT Motion SDK
+from the vendor and provide the following files:
+
+```text
+firmware/stm32/Core/Inc/wit_c_sdk.h
+firmware/stm32/Core/Inc/REG.h
+firmware/stm32/Core/Src/wit_c_sdk.c
+```
+
+These vendor files are intentionally not redistributed in this repository.
+
+Without these files, the WIT IMU integration portion of the original Keil
+project will not compile.
+
 ## Validation
 
 This firmware was used on the real four-wheel mecanum robot and validated together with the ROS 2 / Nav2 system.
