@@ -6,7 +6,7 @@ This project was developed and validated on a real four-wheel mecanum robot for 
 
 > **Repository Scope**
 >
-> This repository contains the open-source STM32 chassis firmware, preserved Nav2 configuration and tuning history, engineering documentation, and real-vehicle validation materials.
+> This repository contains the open-source STM32 chassis firmware, preserved Nav2 configuration snapshots and tuning history, engineering documentation, and real-vehicle validation materials.
 >
 > The original Raspberry Pi ROS 2 application-layer source code was not fully preserved. Its architecture, package responsibilities, launch/config references and validated behavior are documented from the original engineering records.
 
@@ -114,7 +114,7 @@ map
  ▼
 odom
  │
- │ STM32 encoder + IMU based odometry
+ │ encoder + IMU based odometry
  ▼
 base_link
  │
@@ -208,27 +208,25 @@ The robot completed real-vehicle `NavigateToPose` tests including target approac
 
 ## Nav2 Configuration
 
-Preserved navigation configuration files are located under:
-
-```text
-config/
-```
-
-Historical tuning snapshots are stored under:
+Historical Nav2 configuration snapshots are preserved under:
 
 ```text
 config/tuning_history/
 ```
 
-These snapshots document the development process from earlier motion-model and performance settings toward the final MPPI Omni navigation architecture.
-
 > **Important**
 >
 > The exact final September 10–11 Nav2 YAML file was not preserved.
 >
-> The preserved configuration files should therefore be treated as engineering snapshots rather than falsely presented as the exact final production configuration.
+> The preserved YAML files are therefore treated as historical engineering snapshots rather than falsely presented as the exact final production configuration.
 
-The final documented vehicle configuration included:
+The main preserved parameter-audit snapshot is:
+
+```text
+config/tuning_history/nav2_params_mecanum_20260909_audit.yaml
+```
+
+The final documented vehicle baseline included:
 
 - controller frequency: `10 Hz`
 - MPPI `time_steps = 30`
@@ -238,16 +236,22 @@ The final documented vehicle configuration included:
 - `costmap_update_timeout = 0.50 s`
 - `failure_tolerance = 1.00 s`
 - `FollowPath.transform_tolerance = 0.30 s`
-- local costmap based on `ObstacleLayer + InflationLayer`
+- local costmap: `ObstacleLayer + InflationLayer`
+- global costmap: `StaticLayer + ObstacleLayer + InflationLayer`
 - `always_send_full_costmap = false`
+- lifecycle `bond_timeout = 10.0 s`
+
+See:
+
+- [Nav2 / MPPI Tuning and Stability](docs/nav2_tuning.md)
 
 ---
 
 ## STM32 / ROS 2 Communication
 
-The Raspberry Pi communicated with the STM32 chassis controller through a UART serial protocol.
+The Raspberry Pi communicated with the STM32 chassis controller through a UART ASCII protocol.
 
-Commands used by the original system included:
+Supported commands include:
 
 ```text
 V vx vy wz
@@ -256,13 +260,11 @@ RESET_ODOM
 PING
 ```
 
-The STM32 returned chassis state information to the ROS 2 onboard computer for odometry and system monitoring.
+The STM32 periodically returns chassis-state information to the Raspberry Pi for odometry and system monitoring.
 
-A dedicated protocol document will be added under:
+Detailed documentation:
 
-```text
-docs/serial_protocol.md
-```
+- [STM32 / ROS 2 Serial Protocol](docs/serial_protocol.md)
 
 ---
 
@@ -278,7 +280,7 @@ Measured quantities included:
 - PM2.5
 - PM10
 
-The ROS 2 system published these measurements through dedicated `/environment/*` topics.
+The ROS 2 system published these measurements through dedicated `/environment/*` topics at approximately `1 Hz`.
 
 Stable USB device identification used `/dev/serial/by-id` instead of dynamic `ttyUSB` numbering.
 
@@ -302,7 +304,7 @@ go2rtc
 browser / RTSP / WebRTC
 ```
 
-The low-load operating configuration used:
+The final low-load operating baseline used:
 
 - 640×360
 - 10 FPS
@@ -356,17 +358,24 @@ greenhouse-mecanum-robot/
 │
 ├── config/
 │   ├── README.md
-│   ├── nav2_params_mecanum.yaml
 │   └── tuning_history/
+│       ├── README.md
+│       ├── nav2_params_mecanum_20260909_audit.yaml
+│       └── historical tuning snapshots
 │
 ├── docs/
 │   ├── system_architecture.md
-│   └── stm32_firmware_architecture.md
+│   ├── stm32_firmware_architecture.md
+│   ├── serial_protocol.md
+│   ├── nav2_tuning.md
+│   ├── odometry_and_tf.md
+│   ├── field_validation.md
+│   ├── bringup_and_operation.md
+│   └── fault_analysis.md
 │
 ├── media/
 │   ├── README.md
-│   ├── photos / screenshots
-│   └── demo video
+│   └── real-vehicle photos and demonstration materials
 │
 └── archive/
     └── engineering records
@@ -394,9 +403,9 @@ greenhouse-mecanum-robot/
 ### Available in this repository
 
 - STM32 chassis firmware
-- CubeMX project
+- STM32CubeMX project
 - Keil MDK project
-- preserved Nav2 configuration
+- preserved Nav2 configuration snapshots
 - historical Nav2 tuning snapshots
 - engineering documentation
 - real-vehicle photos and demonstration materials
@@ -405,7 +414,7 @@ greenhouse-mecanum-robot/
 
 The original Raspberry Pi ROS 2 application-layer source tree was not completely backed up before the original development environment was retired.
 
-The missing source included components such as:
+The missing original source included components such as:
 
 ```text
 base_serial_bridge
@@ -417,7 +426,7 @@ custom launch files
 
 Their architecture and validated behavior are preserved through the project's engineering records.
 
-Any future reimplementation of these missing modules will be clearly marked as **reconstructed code**, rather than presented as the original flight-tested / vehicle-tested source.
+Any future reimplementation of these missing modules will be clearly marked as **reconstructed code**, rather than presented as the original vehicle-tested source.
 
 ---
 

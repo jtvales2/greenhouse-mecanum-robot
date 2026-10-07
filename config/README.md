@@ -1,19 +1,20 @@
-# Configuration
+# Navigation Configuration
 
-This directory contains the validated navigation configuration and tuning history used on the real mecanum robot.
+This directory preserves Nav2 configuration snapshots from the development of
+the greenhouse mecanum robot.
 
-## Main Configuration
+## Important Note
 
-The final Nav2 configuration is based on:
+The exact Nav2 YAML file used during the final September 10–11 real-vehicle
+validation was not preserved.
 
-- Nav2 MPPI Controller
-- Omni motion model
-- AMCL localization
-- Velocity Smoother
-- Collision Monitor
-- Mecanum chassis footprint and velocity limits
+For this reason, the configuration files in this repository are treated as
+historical engineering snapshots rather than falsely presented as the exact
+final production configuration.
 
-Historical tuning versions are preserved under:
+## Preserved Audit Snapshot
+
+The main preserved parameter-audit snapshot is:
 
 ```text
-config/tuning_history/
+tuning_history/nav2_params_mecanum_20260909_audit.yaml

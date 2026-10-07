@@ -66,3 +66,43 @@ vcpkg_installed/
 # test output & cache
 Testing/
 .cache/
+
+# Keil / MDK-ARM build outputs
+Objects/
+Listings/
+Debug/
+Release/
+build/
+
+*.o
+*.obj
+*.d
+*.dep
+*.crf
+*.map
+*.axf
+*.elf
+*.hex
+*.bin
+*.lst
+
+# Keil user-specific files
+*.uvguix.*
+*.uvoptx
+
+# STM32 / IDE temporary files
+.mxproject
+.settings/
+.project
+.cproject
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+*~
