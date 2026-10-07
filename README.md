@@ -381,6 +381,7 @@ greenhouse-mecanum-robot/
 - [System Architecture](docs/system_architecture.md)
 - [STM32 Firmware Architecture](docs/stm32_firmware_architecture.md)
 - [STM32 / ROS 2 Serial Protocol](docs/serial_protocol.md)
+- [Nav2 / MPPI Tuning and Stability](docs/nav2_tuning.md)
 
 ---
 
