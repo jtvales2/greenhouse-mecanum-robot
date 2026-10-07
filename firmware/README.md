@@ -48,6 +48,12 @@ from the vendor and provide the following files:
 firmware/stm32/Core/Inc/wit_c_sdk.h
 firmware/stm32/Core/Inc/REG.h
 firmware/stm32/Core/Src/wit_c_sdk.c
+```
+
+These vendor files are intentionally not redistributed in this repository.
+
+Without these files, the WIT IMU integration portion of the original Keil
+project will not compile.
 
 ## Validation
 
