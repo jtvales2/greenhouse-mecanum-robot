@@ -384,6 +384,7 @@ greenhouse-mecanum-robot/
 - [Nav2 / MPPI Tuning and Stability](docs/nav2_tuning.md)
 - [Odometry and TF Engineering](docs/odometry_and_tf.md)
 - [Real-Vehicle Validation](docs/field_validation.md)
+- [Bringup and Operation Guide](docs/bringup_and_operation.md)
 
 ---
 
